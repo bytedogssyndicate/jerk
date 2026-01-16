@@ -1,0 +1,492 @@
+JERK FRAMEWORK v2.0 - DIAGRAMA DE FLUJO DETALLADO
+===============================================
+
+[INICIO]
+   │
+   ▼
+[APIServer.start()]
+   │
+   ▼
+[HTTP Request recibido]
+   │
+   ▼
+[Verificar método HTTP]
+   ├─ GET ──────────────────────────────────────────────────────────────►
+   ├─ POST ─────────────────────────────────────────────────────────────►
+   ├─ PUT ──────────────────────────────────────────────────────────────►
+   ├─ DELETE ───────────────────────────────────────────────────────────►
+   └─ OPTIONS ──────────────────────────────────────────────────────────►
+   │
+   ▼
+[Parse URL: pathname, query]
+   │
+   ▼
+[req.query = query]
+   │
+   ▼
+[req.params = {}]
+   │
+   ▼
+[req.body = '', bodySize = 0]
+   │
+   ▼
+[Capturar body con límite maxBodySize]
+   │
+   ├─ bodySize > maxBodySize? ──► [413 Request Too Large] ──► [FIN]
+   │
+   ▼
+[Fin de recepción de datos]
+   │
+   ▼
+[Parse body si es JSON]
+   │
+   ▼
+[¿Es solicitud OPTIONS?]
+   ├─ SÍ ──► [Ejecutar middlewares CORS]
+   │         │
+   │         ▼
+   │    [¿Hay ruta específica para OPTIONS?]
+   │         ├─ SÍ ──► [Agregar parámetros req.params]
+   │         │         │
+   │         │         ▼
+   │         │    [Ejecutar handler de ruta]
+   │         │         │
+   │         │         ▼
+   │         └─ NO ──► [204 No Content] ──► [FIN]
+   │
+   ▼
+   └─ NO ──► [Buscar ruta coincidente: findRoute(method, pathname)]
+         │
+         ▼
+    [¿Ruta encontrada?]
+         ├─ NO ──► [404 Not Found] ──► [FIN]
+         │
+         ▼
+         └─ SÍ ──► [Agregar parámetros req.params]
+               │
+               ▼
+          [Ejecutar middlewares en secuencia]
+               │
+               ▼
+         [¿Middleware respondió?]
+               ├─ SÍ ──► [FIN]
+               │
+               ▼
+               └─ NO ──► [Ejecutar handler de ruta]
+                     │
+                     ▼
+                [¿Handler es asíncrono?]
+                     ├─ SÍ ──► [await handler(req, res)]
+                     │
+                     ▼
+                     └─ NO ──► [handler(req, res)]
+                           │
+                           ▼
+                      [FIN - Respuesta enviada]
+
+DETALLE DE findRoute():
+[findRoute(method, pathname)]
+   │
+   ▼
+[Búsqueda de ruta exacta]
+   │
+   ▼
+[¿Encuentra ruta exacta?]
+   ├─ SÍ ──► [Devolver {route, params: {}}]
+   │
+   ▼
+   └─ NO ──► [Búsqueda de rutas parametrizadas]
+         │
+         ▼
+    [Iterar por cada ruta]
+         │
+         ▼
+    [¿Mismo método HTTP?]
+         ├─ NO ──► [Siguiente ruta]
+         │
+         ▼
+         └─ SÍ ──► [Convertir ruta a expresión regular: pathToRegex(route.path)]
+               │
+               ▼
+          [¿pathname.match(routeRegex)?]
+               ├─ SÍ ──► [Extraer parámetros: extractParams(route.path, pathname)]
+               │         │
+               │         ▼
+               │    [Devolver {route, params}]
+               │
+               ▼
+               └─ NO ──► [Siguiente ruta]
+                     │
+                     ▼
+                [¿Más rutas?]
+                     ├─ SÍ ──► [Iterar]
+                     └─ NO ──► [Devolver null]
+
+DETALLE DE pathToRegex():
+[pathToRegex(path)]
+   │
+   ▼
+[Escapar caracteres especiales manteniendo parámetros]
+   │
+   ▼
+[Reemplazar :param con ([^/]+?)]
+   │
+   ▼
+[Crear RegExp: new RegExp(`^${regexPath}$`)]
+
+DETALLE DE extractParams():
+[extractParams(routePath, actualPath)]
+   │
+   ▼
+[Encontrar nombres de parámetros con /:([a-zA-Z0-9_]+)/g]
+   │
+   ▼
+[Crear array paramNames]
+   │
+   ▼
+[Generar routeRegex con pathToRegex]
+   │
+   ▼
+[Obtener values con actualPath.match(routeRegex)]
+   │
+   ▼
+[Asignar valores a parámetros: params[paramNames[i]] = values[i+1]]
+   │
+   ▼
+[Devolver params]
+
+DETALLE DE handleRequest():
+[handleRequest(req, res)]
+   │
+   ▼
+[Parse URL: pathname, query]
+   │
+   ▼
+[req.query = query, req.params = {}, req.body = '']
+   │
+   ▼
+[Capturar body con límite]
+   │
+   ├─ ¿bodySize > maxBodySize? ──► [413 Error] ──► [FIN]
+   │
+   ▼
+[Fin de recepción de datos]
+   │
+   ▼
+[Parse body si es JSON]
+   │
+   ▼
+[¿Es solicitud OPTIONS?]
+   ├─ SÍ ──► [Ejecutar middlewares]
+   │         │
+   │         ▼
+   │    [¿Hay ruta específica?]
+   │         ├─ SÍ ──► [Ejecutar handler]
+   │         └─ NO ──► [204 No Content]
+   │
+   ▼
+   └─ NO ──► [findRoute(method, pathname)]
+         │
+         ▼
+    [¿Ruta encontrada?]
+         ├─ NO ──► [404 Not Found]
+         │
+         ▼
+         └─ SÍ ──► [Agregar req.params]
+               │
+               ▼
+          [Ejecutar middlewares]
+               │
+               ▼
+         [¿Middleware respondió?]
+               ├─ SÍ ──► [FIN]
+               │
+               ▼
+               └─ NO ──► [Ejecutar handler]
+                     │
+                     ▼
+                [¿Handler asíncrono?]
+                     ├─ SÍ ──► [await handler]
+                     └─ NO ──► [handler]
+
+ESTRUCTURA DE ARCHIVOS:
+├── index.js (entry point)
+├── lib/
+│   ├── core/
+│   │   ├── server.js (APIServer)
+│   │   ├── router.js (Router)
+│   │   └── ...
+│   ├── middleware/
+│   │   ├── authenticator.js (Authenticator)
+│   │   ├── firewall.js (Firewall)
+│   │   └── ...
+│   ├── loader/
+│   │   ├── routeLoader.js (RouteLoader)
+│   │   └── ...
+│   ├── mvc/
+│   │   ├── viewEngine.js (ViewEngine)
+│   │   ├── controllerBase.js (ControllerBase)
+│   │   └── ...
+│   └── utils/
+│       ├── tokenManager.js (TokenManager)
+│       ├── logger.js (Logger)
+│       └── ...
+├── docs/
+│   └── guia_inicio_rapido_jerkjs.md
+├── examples/
+├── v2examplle/
+├── README.md
+├── package.json
+└── CHANGELOG.md
+
+FLUJO DE CARGA DE RUTAS:
+[RouteLoader.loadRoutes(server, filePath)]
+   │
+   ▼
+[¿Existe archivo?]
+   ├─ NO ──► [Error: Archivo no encontrado]
+   │
+   ▼
+   └─ SÍ ──► [Leer y parsear JSON]
+         │
+         ▼
+    [validateRoutesStructure(routes)]
+         │
+         ▼
+    [Iterar por cada route]
+         │
+         ▼
+    [loadSingleRoute(server, route)]
+         │
+         ▼
+    [¿Tiene contentType?]
+         ├─ SÍ ──► [Crear wrapper con setHeader]
+         │
+         ▼
+         └─ NO ──► [Usar handler directamente]
+               │
+               ▼
+          [¿Tiene autenticación?]
+               ├─ NO ──► [server.addRoute(method, path, handler)]
+               │
+               ▼
+               └─ SÍ ──► [¿Es autenticación de sesión?]
+                     ├─ SÍ ──► [sessionAuth middleware]
+                     │         │
+                     │         ▼
+                     │    [Crear authenticatedHandler]
+                     │         │
+                     │         ▼
+                     │    [server.addRoute(method, path, authenticatedHandler)]
+                     │
+                     ▼
+                     └─ NO ──► [authenticator.authenticate middleware]
+                           │
+                           ▼
+                      [Crear authenticatedHandler]
+                           │
+                           ▼
+                      [server.addRoute(method, path, authenticatedHandler)]
+
+FLUJO DE AUTENTICACIÓN:
+[Authenticator.authenticate(strategyName, options)]
+   │
+   ▼
+[¿Existe estrategia?]
+   ├─ NO ──► [Error: Estrategia no encontrada]
+   │
+   ▼
+   └─ SÍ ──► [Obtener IP cliente]
+         │
+         ▼
+    [¿IP está bloqueada?]
+         ├─ SÍ ──► [403 Forbidden - Acceso bloqueado]
+         │
+         ▼
+         └─ NO ──► [Ejecutar estrategia]
+               │
+               ▼
+          [¿Autenticación exitosa?]
+               ├─ SÍ ──► [Registrar éxito, resetear intentos, next()]
+               │
+               ▼
+               └─ NO ──► [Incrementar intentos fallidos, registrar fallo, 401 Unauthorized]
+
+FLUJO DE FIREWALL:
+[Firewall.middleware()]
+   │
+   ▼
+[Obtener IP cliente]
+   │
+   ▼
+[¿IP está bloqueada?]
+   ├─ SÍ ──► [403 Forbidden - Acceso denegado por firewall]
+   │
+   ▼
+   └─ NO ──► [checkRules(req)]
+         │
+         ▼
+    [¿Coincide con alguna regla?]
+         ├─ SÍ ──► [¿Acción es bloquear?]
+         │         ├─ SÍ ──► [Incrementar intentos, 403 Forbidden]
+         │         └─ NO ──► [Continuar con monitoreo]
+         │
+         ▼
+         └─ NO ──► [next() - Continuar con siguiente middleware]
+
+FLUJO DE MOTOR DE PLANTILLAS:
+[ViewEngine.render(viewName, data, options)]
+   │
+   ▼
+[getViewPath(viewName)]
+   │
+   ▼
+[¿Existe vista?]
+   ├─ NO ──► [Error: Vista no encontrada]
+   │
+   ▼
+   └─ SÍ ──► [¿Habilitado cache y está en cache?]
+         ├─ SÍ ──► [Obtener del cache]
+         │
+         ▼
+         └─ NO ──► [Leer contenido de vista]
+               │
+               ▼
+          [processIncludes(content, dirname)]
+               │
+               ▼
+          [¿Habilitar cache?]
+               ├─ SÍ ──► [Guardar en cache]
+               │
+               ▼
+               └─ NO ──► [Continuar]
+                     │
+                     ▼
+                [processTemplate(content, data, options)]
+                     │
+                     ▼
+                [processForeach(template, data, options)]
+                     │
+                     ▼
+                [processConditionals(template, data, options)]
+                     │
+                     ▼
+                [replaceVariablesAndFilters(template, data, options)]
+                     │
+                     ▼
+                [Devolver template procesado]
+
+FLUJO DE SESIONES:
+[SessionManager.middleware()]
+   │
+   ▼
+[¿Tiene cookie de sesión?]
+   ├─ NO ──► [Crear nueva sesión]
+   │
+   ▼
+   └─ SÍ ──► [Validar sesión existente]
+         │
+         ▼
+    [¿Sesión válida?]
+         ├─ NO ──► [Crear nueva sesión]
+         │
+         ▼
+         └─ SÍ ──► [Actualizar última actividad]
+               │
+               ▼
+          [Agregar req.session]
+               │
+               ▼
+          [next()]
+
+FLUJO DE HOOKS:
+[hooks.doAction('nombre_hook', ...args)]
+   │
+   ▼
+[Buscar listeners para 'nombre_hook']
+   │
+   ▼
+[Ejecutar cada listener en secuencia]
+   │
+   ▼
+[Continuar]
+
+[hooks.applyFilters('nombre_filtro', value, ...args)]
+   │
+   ▼
+[Buscar listeners para 'nombre_filtro']
+   │
+   ▼
+[Aplicar cada listener al valor en secuencia]
+   │
+   ▼
+[Devolver valor modificado]
+
+ESTRATEGIAS DE AUTENTICACIÓN:
+1. JWT Strategy:
+   - Verificar header Authorization: Bearer token
+   - Validar token con jwt.verify()
+   - ¿Token expirado? → Intentar refresh con refresh token
+   - Agregar req.user con payload decodificado
+
+2. API Key Strategy:
+   - Verificar header X-API-Key
+   - Comparar con claves válidas
+   - ¿Configuración por tenant? → Usar claves específicas
+
+3. Basic Strategy:
+   - Verificar header Authorization: Basic base64(usuario:contraseña)
+   - Decodificar y comparar credenciales
+   - Agregar req.user con nombre de usuario
+
+4. OAuth2 Strategy:
+   - Verificar token Bearer o código de autorización
+   - Validar con proveedor OAuth2
+   - Agregar req.oauth2User
+
+5. OpenID Connect Strategy:
+   - Verificar ID token
+   - Validar con proveedor OIDC
+   - Agregar req.oidcUser
+
+FLUJO DE VALIDACIÓN DE RUTAS:
+[validateRoutesStructure(routes)]
+   │
+   ▼
+[¿routes es array?]
+   ├─ NO ──► [Error: No es array]
+   │
+   ▼
+   └─ SÍ ──► [Iterar por cada route]
+         │
+         ▼
+    [¿route es objeto?]
+         ├─ NO ──► [Error: No es objeto]
+         │
+         ▼
+         └─ SÍ ──► [¿Tiene path?]
+               ├─ NO ──► [Error: Falta path]
+               │
+               ▼
+               └─ SÍ ──► [¿Tiene method?]
+                     ├─ NO ──► [Error: Falta method]
+                     │
+                     ▼
+                     └─ SÍ ──► [¿Tiene controller?]
+                           ├─ NO ──► [Error: Falta controller]
+                           │
+                           ▼
+                           └─ SÍ ──► [¿Tiene handler?]
+                                 ├─ NO ──► [Error: Falta handler]
+                                 │
+                                 ▼
+                                 └─ SÍ ──► [¿contentType es string si existe?]
+                                       ├─ NO ──► [Error: contentType inválido]
+                                       │
+                                       ▼
+                                       └─ SÍ ──► [Siguiente ruta]
+                                             │
+                                             ▼
+                                        [¿Más rutas?]
+                                             ├─ SÍ ──► [Iterar]
+                                             └─ NO ──► [Validación exitosa]
