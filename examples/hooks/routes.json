@@ -1,0 +1,51 @@
+[
+  {
+    "method": "GET",
+    "path": "/",
+    "controller": "./controllers/mainController.js",
+    "handler": "home",
+    "auth": "none"
+  },
+  {
+    "method": "GET",
+    "path": "/users",
+    "controller": "./controllers/userController.js",
+    "handler": "getAllUsers",
+    "auth": "none"
+  },
+  {
+    "method": "GET",
+    "path": "/users/:id",
+    "controller": "./controllers/userController.js",
+    "handler": "getUserById",
+    "auth": "none"
+  },
+  {
+    "method": "POST",
+    "path": "/users",
+    "controller": "./controllers/userController.js",
+    "handler": "createUser",
+    "auth": "required"
+  },
+  {
+    "method": "GET",
+    "path": "/products",
+    "controller": "./controllers/productController.js",
+    "handler": "getAllProducts",
+    "auth": "none"
+  },
+  {
+    "method": "GET",
+    "path": "/products/:id",
+    "controller": "./controllers/productController.js",
+    "handler": "getProductById",
+    "auth": "none"
+  },
+  {
+    "method": "POST",
+    "path": "/login",
+    "controller": "./controllers/authController.js",
+    "handler": "login",
+    "auth": "none"
+  }
+]

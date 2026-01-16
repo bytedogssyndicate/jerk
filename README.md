@@ -156,9 +156,15 @@ El proyecto incluye varios ejemplos completos:
 - **v2_sqlite_auth**: Autenticación JWT con tokens almacenados en SQLite
 - **public**: API pública de ejemplo con CORS y rate limiting
 - **frontend**: Ejemplo de servidor que combina API y frontend con diferentes content-types
-- **hooks**: Ejemplo de uso del sistema de hooks
+- **hooks**: Ejemplo avanzado de uso del sistema de hooks con logging y seguimiento de solicitudes
 
 Para ver los ejemplos completos, visita los directorios `v2examplle/` y `examples/`.
+
+## Documentación
+
+Además de la documentación en el README, el proyecto incluye documentación adicional:
+
+- **Guía de inicio rápido**: `docs/guia_inicio_rapido_jerkjs.md` - Una guía completa para empezar rápidamente con JERKJS, incluyendo formatos de archivos, estructura de controladores, motor de plantillas y sistema de hooks.
 
 ## Contribuciones
 

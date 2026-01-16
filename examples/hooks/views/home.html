@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .api-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+        }
+        .endpoint-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{title}}</h1>
+        <p>{{message}}</p>
+
+        <div class="api-info">
+            <h2>Endpoints disponibles:</h2>
+            <ul>
+                {{foreach:endpoints}}
+                <li class="endpoint-item"><strong>{{item.method}}</strong> {{item.path}} - {{item.description}}</li>
+                {{endforeach}}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
