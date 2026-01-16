@@ -296,9 +296,7 @@ graph TD
     ZZZZ --> XXXX
     XXXX --> AAAAB[Call next()]
 
-    BBBB -.-> CCCC
     QQ -.-> AAA
     ZZ -.-> BBB
     QQQ -.-> RRR
-    BBBB -.-> CCCC
 ```
