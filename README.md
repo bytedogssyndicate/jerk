@@ -5,8 +5,6 @@
 Visita nuestra página web: https://jerk.page.gd/
 Repositorio oficial: https://gitlab.com/bytedogssyndicate1/jerk/
 
-JERK Framework es un framework completo para construir APIs seguras y escalables en Node.js. Proporciona una arquitectura modular con soporte para autenticación, seguridad avanzada, enrutamiento flexible, gestión de sesiones, motor de plantillas MVC y muchas características más.
-
 ## Características
 
 - **Arquitectura Modular**: Componentes independientes para mayor flexibilidad
@@ -27,13 +25,13 @@ JERK Framework es un framework completo para construir APIs seguras y escalables
 ## Instalación
 
 ```bash
-npm install @jerkjs/jerk
+npm install jerkjs
 ```
 
 ## Uso Básico
 
 ```javascript
-const { APIServer, Router, Logger } = require('@jerkjs/jerk');
+const { APIServer, Router, Logger } = require('jerkjs');
 
 // Crear instancia del servidor
 const server = new APIServer({
@@ -105,7 +103,7 @@ El framework incluye múltiples capas de seguridad:
 El framework incluye un sistema de hooks y filters similar al de WordPress:
 
 ```javascript
-const { hooks } = require('@jerkjs/jerk');
+const { hooks } = require('jerkjs');
 
 // Registrar una acción
 hooks.addAction('firewall_request_blocked', (rule, clientIP, req, res) => {
@@ -138,7 +136,7 @@ El framework incluye un motor de plantillas profesional con soporte para:
 El framework incluye un sistema completo de gestión de sesiones:
 
 ```javascript
-const { SessionManager } = require('@jerkjs/jerk');
+const { SessionManager } = require('jerkjs');
 
 const sessionManager = new SessionManager({
   secret: 'your-session-secret',
