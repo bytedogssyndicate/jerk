@@ -1,0 +1,22 @@
+{
+  "name": "api-sdk-public-example",
+  "version": "1.0.0",
+  "description": "Ejemplo de API pública sin autenticación usando el Framework API SDK",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "public",
+    "no-authentication",
+    "framework"
+  ],
+  "author": "API SDK Framework",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

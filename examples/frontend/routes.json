@@ -1,0 +1,90 @@
+[
+  {
+    "path": "/",
+    "method": "GET",
+    "controller": "./controllers/pageController.js",
+    "handler": "homePage",
+    "auth": "none",
+    "contentType": "text/html"
+  },
+  {
+    "path": "/about",
+    "method": "GET",
+    "controller": "./controllers/pageController.js",
+    "handler": "aboutPage",
+    "auth": "none",
+    "contentType": "text/html"
+  },
+  {
+    "path": "/contact",
+    "method": "GET",
+    "controller": "./controllers/pageController.js",
+    "handler": "contactPage",
+    "auth": "none",
+    "contentType": "text/html"
+  },
+  {
+    "path": "/login",
+    "method": "GET",
+    "controller": "./controllers/authController.js",
+    "handler": "showLoginPage",
+    "auth": "none",
+    "contentType": "text/html"
+  },
+  {
+    "path": "/messages",
+    "method": "GET",
+    "controller": "./controllers/authController.js",
+    "handler": "showMessages",
+    "auth": "session",
+    "contentType": "text/html"
+  },
+  {
+    "path": "/api/login",
+    "method": "POST",
+    "controller": "./controllers/authController.js",
+    "handler": "processLogin",
+    "auth": "none",
+    "contentType": "application/json"
+  },
+  {
+    "path": "/api/contact",
+    "method": "POST",
+    "controller": "./controllers/formController.js",
+    "handler": "processContactForm",
+    "auth": "none",
+    "contentType": "application/json"
+  },
+  {
+    "path": "/api/users",
+    "method": "GET",
+    "controller": "./controllers/apiController.js",
+    "handler": "getUsers",
+    "auth": "none",
+    "contentType": "application/json"
+  },
+  {
+    "path": "/api/users/:id",
+    "method": "GET",
+    "controller": "./controllers/apiController.js",
+    "handler": "getUserById",
+    "auth": "none",
+    "contentType": "application/json"
+  },
+  {
+    "path": "/styles.css",
+    "method": "GET",
+    "controller": "./controllers/staticController.js",
+    "handler": "getCSS",
+    "auth": "none",
+    "contentType": "text/css"
+  },
+  {
+    "path": "/script.js",
+    "method": "GET",
+    "controller": "./controllers/staticController.js",
+    "handler": "getJS",
+    "auth": "none",
+    "contentType": "application/javascript"
+  }
+]

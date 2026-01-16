@@ -1,0 +1,51 @@
+[
+  {
+    "path": "/api/users",
+    "method": "GET",
+    "auth": "jwt",
+    "authOptions": {
+      "jwtSecret": "secret-jwt-key"
+    },
+    "controller": "./basic/controllers/userController.js",
+    "handler": "getUsers"
+  },
+  {
+    "path": "/api/users/:id",
+    "method": "GET",
+    "auth": "jwt",
+    "authOptions": {
+      "jwtSecret": "secret-jwt-key"
+    },
+    "controller": "./basic/controllers/userController.js",
+    "handler": "getUserById"
+  },
+  {
+    "path": "/api/users",
+    "method": "POST",
+    "auth": "apiKey",
+    "authOptions": {
+      "apiKeyHeader": "X-API-Key",
+      "apiKeyValues": ["secret-key-123"]
+    },
+    "controller": "./basic/controllers/userController.js",
+    "handler": "createUser"
+  },
+  {
+    "path": "/api/products",
+    "method": "GET",
+    "auth": "none",
+    "controller": "./advanced/controllers/productController.js",
+    "handler": "getProducts"
+  },
+  {
+    "path": "/api/products/:id",
+    "method": "PUT",
+    "auth": "apiKey",
+    "authOptions": {
+      "apiKeyHeader": "X-API-Key",
+      "apiKeyValues": ["secret-key-123"]
+    },
+    "controller": "./advanced/controllers/productController.js",
+    "handler": "updateProduct"
+  }
+]

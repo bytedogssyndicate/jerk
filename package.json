@@ -1,0 +1,42 @@
+{
+  "name": "@jerkjs/jerk",
+  "version": "2.0.0",
+  "description": "JERK Framework v2.0 - A comprehensive framework for building secure and scalable APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "framework",
+    "server",
+    "router",
+    "middleware",
+    "security",
+    "authentication",
+    "cors",
+    "rate-limiter",
+    "firewall",
+    "waf"
+  ],
+  "author": "JERK Team",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/bytedogssyndicate1/jerk.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/bytedogssyndicate1/jerk/issues"
+  },
+  "homepage": "https://jerk.page.gd/",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mariadb": "^3.0.0",
+    "sqlite3": "^5.1.7"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

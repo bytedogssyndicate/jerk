@@ -1,0 +1,51 @@
+[
+  {
+    "path": "/",
+    "method": "GET",
+    "controller": "./controllers/mainController.js",
+    "handler": "home",
+    "auth": "none"
+  },
+  {
+    "path": "/users",
+    "method": "GET",
+    "controller": "./controllers/userController.js",
+    "handler": "getAllUsers",
+    "auth": "none"
+  },
+  {
+    "path": "/users/:id",
+    "method": "GET",
+    "controller": "./controllers/userController.js",
+    "handler": "getUserById",
+    "auth": "none"
+  },
+  {
+    "path": "/users",
+    "method": "POST",
+    "controller": "./controllers/userController.js",
+    "handler": "createUser",
+    "auth": "none"
+  },
+  {
+    "path": "/users/:id",
+    "method": "PUT",
+    "controller": "./controllers/userController.js",
+    "handler": "updateUser",
+    "auth": "none"
+  },
+  {
+    "path": "/users/:id",
+    "method": "DELETE",
+    "controller": "./controllers/userController.js",
+    "handler": "deleteUser",
+    "auth": "none"
+  },
+  {
+    "path": "/health",
+    "method": "GET",
+    "controller": "./controllers/healthController.js",
+    "handler": "checkHealth",
+    "auth": "none"
+  }
+]

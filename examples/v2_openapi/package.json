@@ -1,0 +1,26 @@
+{
+  "name": "api-sdk-openapi-example",
+  "version": "1.0.0",
+  "description": "Ejemplo de API con funcionalidad OpenAPI usando el Framework API SDK",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "openapi",
+    "swagger",
+    "documentation",
+    "framework"
+  ],
+  "author": "API SDK Framework",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
