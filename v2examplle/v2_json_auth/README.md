@@ -1,6 +1,6 @@
 # Ejemplo API con Autenticación JSON
 
-Este ejemplo demuestra cómo crear una API con autenticación basada en tokens estáticos almacenados en un archivo JSON utilizando el Framework API SDK.
+Este ejemplo demuestra cómo crear una API con autenticación basada en tokens estáticos almacenados en un archivo JSON utilizando el Framework JERK.
 
 ## Características
 
@@ -12,7 +12,7 @@ Este ejemplo demuestra cómo crear una API con autenticación basada en tokens e
 
 ## Configuración
 
-1. Asegúrate de tener instaladas las dependencias del framework API SDK
+1. Asegúrate de tener instaladas las dependencias del framework JERK
 2. El archivo de tokens `tokens.json` se creará automáticamente al iniciar la aplicación
 
 ## Uso

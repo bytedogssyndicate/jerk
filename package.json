@@ -1,7 +1,7 @@
 {
-  "name": "@jerkjs/jerk",
-  "version": "2.0.0",
-  "description": "JERK Framework v2.0 - A comprehensive framework for building secure and scalable APIs",
+  "name": "jerkjs",
+  "version": "2.0.1",
+  "description": "JERK Framework v2.0 - A comprehensive framework for building secure and scalable APIs with frontend support, sessions, and template engine",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +20,7 @@
     "firewall",
     "waf"
   ],
-  "author": "JERK Team",
+  "author": "JERK Framework Team",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

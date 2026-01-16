@@ -51,7 +51,7 @@ const authController = {
         </main>
         
         <footer>
-            <p>&copy; 2026 API SDK JS Framework</p>
+            <p>&copy; 2026 JERK JS Framework</p>
         </footer>
     </div>
     <script src="/script.js"></script>
@@ -200,7 +200,7 @@ const authController = {
         </main>
         
         <footer>
-            <p>&copy; 2026 API SDK JS Framework</p>
+            <p>&copy; 2026 JERK JS Framework</p>
         </footer>
     </div>
     <script src="/script.js"></script>

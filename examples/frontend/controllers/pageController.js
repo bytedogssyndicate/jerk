@@ -28,7 +28,7 @@ const pageController = {
 
         <main>
             <section class="hero">
-                <h2>Framework API SDK JS</h2>
+                <h2>Framework JERK JS</h2>
                 <p>Esta es una demostración de cómo el framework puede servir tanto APIs como contenido HTML para frontends.</p>
                 <p>El content-type de esta página se establece desde el archivo routes.json.</p>
             </section>
@@ -45,7 +45,7 @@ const pageController = {
         </main>
 
         <footer>
-            <p>&copy; 2026 API SDK JS Framework</p>
+            <p>&copy; 2026 JERK JS Framework</p>
         </footer>
     </div>
     <script src="/script.js"></script>
@@ -84,7 +84,7 @@ const pageController = {
         <main>
             <section>
                 <h2>Nuestro Framework</h2>
-                <p>El Framework API SDK JS es una solución completa para construir APIs seguras y escalables.</p>
+                <p>El Framework JERK JS es una solución completa para construir APIs seguras y escalables.</p>
 
                 <h3>Capacidades Extendidas</h3>
                 <p>Ahora también puede servir contenido HTML y otros tipos de contenido gracias a la nueva funcionalidad de especificación de content-type en routes.json.</p>
@@ -101,7 +101,7 @@ const pageController = {
         </main>
 
         <footer>
-            <p>&copy; 2026 API SDK JS Framework</p>
+            <p>&copy; 2026 JERK JS Framework</p>
         </footer>
     </div>
     <script src="/script.js"></script>
@@ -163,7 +163,7 @@ const pageController = {
         </main>
 
         <footer>
-            <p>&copy; 2026 API SDK JS Framework</p>
+            <p>&copy; 2026 JERK JS Framework</p>
         </footer>
     </div>
     <script src="/script.js"></script>

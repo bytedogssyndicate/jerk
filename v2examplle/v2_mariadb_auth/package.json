@@ -1,7 +1,7 @@
 {
-  "name": "api-sdk-mariadb-example",
+  "name": "jerk-mariadb-example",
   "version": "1.0.0",
-  "description": "Ejemplo de API con autenticación MariaDB usando el Framework API SDK",
+  "description": "Ejemplo de API con autenticación MariaDB usando el Framework JERK",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -15,8 +15,8 @@
     "jwt",
     "framework"
   ],
-  "author": "API SDK Framework",
-  "license": "MIT",
+  "author": "JERK Framework",
+  "license": "Apache-2.0",
   "dependencies": {
     "jsonwebtoken": "^9.0.0",
     "mariadb": "^3.0.0"

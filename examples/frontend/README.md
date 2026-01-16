@@ -1,6 +1,6 @@
-# Ejemplo Frontend con API SDK JS
+# Ejemplo Frontend con JERK JS
 
-Este ejemplo demuestra cómo el Framework API SDK JS puede utilizarse para servir tanto APIs como contenido HTML para frontends, gracias a la nueva funcionalidad de especificación de content-type en el archivo routes.json.
+Este ejemplo demuestra cómo el Framework JERK JS puede utilizarse para servir tanto APIs como contenido HTML para frontends, gracias a la nueva funcionalidad de especificación de content-type en el archivo routes.json.
 
 ## Características
 
@@ -12,7 +12,7 @@ Este ejemplo demuestra cómo el Framework API SDK JS puede utilizarse para servi
 
 ## Configuración
 
-1. Asegúrate de tener instaladas las dependencias del framework API SDK
+1. Asegúrate de tener instaladas las dependencias del framework JERK
 2. No se requiere configuración adicional para este ejemplo
 
 ## Uso

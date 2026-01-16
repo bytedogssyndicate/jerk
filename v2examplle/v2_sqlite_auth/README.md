@@ -1,6 +1,6 @@
 # Ejemplo API con Autenticación SQLite
 
-Este ejemplo demuestra cómo crear una API con autenticación basada en tokens almacenados en SQLite utilizando el Framework API SDK.
+Este ejemplo demuestra cómo crear una API con autenticación basada en tokens almacenados en SQLite utilizando el Framework JERK.
 
 ## Características
 
@@ -11,7 +11,7 @@ Este ejemplo demuestra cómo crear una API con autenticación basada en tokens a
 
 ## Configuración
 
-1. Asegúrate de tener instaladas las dependencias del framework API SDK
+1. Asegúrate de tener instaladas las dependencias del framework JERK
 2. Instala sqlite3 si aún no está instalado: `npm install sqlite3`
 
 ## Uso

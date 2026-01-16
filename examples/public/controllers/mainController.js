@@ -4,7 +4,7 @@ const mainController = {
     res.end(JSON.stringify({
       message: 'Bienvenido a la API Pública de Ejemplo',
       version: '1.0.0',
-      description: 'Esta es una API pública de ejemplo creada con el Framework API SDK JS',
+      description: 'Esta es una API pública de ejemplo creada con el Framework JERK JS',
       endpoints: {
         'GET /': 'Este mensaje',
         'GET /users': 'Obtener lista de usuarios',

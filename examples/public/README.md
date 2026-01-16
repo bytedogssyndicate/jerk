@@ -1,6 +1,6 @@
 # API Pública de Ejemplo
 
-Este ejemplo demuestra cómo crear una API pública usando el Framework API SDK JS. La API incluye endpoints para gestionar usuarios y está protegida con CORS y rate limiting.
+Este ejemplo demuestra cómo crear una API pública usando el Framework JERK JS. La API incluye endpoints para gestionar usuarios y está protegida con CORS y rate limiting.
 
 ## Características
 
@@ -13,7 +13,7 @@ Este ejemplo demuestra cómo crear una API pública usando el Framework API SDK 
 
 ## Configuración
 
-1. Asegúrate de tener instaladas las dependencias del framework API SDK
+1. Asegúrate de tener instaladas las dependencias del framework JERK
 2. No se requiere configuración adicional para esta API pública
 
 ## Uso

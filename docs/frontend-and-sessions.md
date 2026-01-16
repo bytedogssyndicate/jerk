@@ -1,8 +1,5 @@
 # Frontend y Sesiones con API SDK JS
 
-Visita nuestra página web: https://jerk.page.gd/
-Repositorio oficial: https://gitlab.com/bytedogssyndicate1/jerk/
-
 ## Introducción
 
 API SDK JS no solo es un framework para crear APIs, sino que ahora también soporta la creación de aplicaciones web completas con frontend y sistema de sesiones. Esta funcionalidad permite a los desarrolladores crear aplicaciones web completas con autenticación basada en sesiones, almacenamiento de datos y mucho más.
@@ -50,7 +47,7 @@ El framework ahora puede servir diferentes tipos de contenido:
 Para usar el sistema de sesiones, primero debes configurar el middleware en tu aplicación:
 
 ```javascript
-const { APIServer, SessionManager, Cors } = require('@jerkjs/jerk');
+const { APIServer, SessionManager, Cors } = require('jerkjs');
 
 async function startServer() {
   const server = new APIServer({
@@ -190,7 +187,7 @@ El sistema de sesiones está completamente integrado con el sistema de hooks, fi
 #### Registrar actividad de sesión
 
 ```javascript
-const { hooks } = require('@jerkjs/jerk');
+const { hooks } = require('jerkjs');
 
 // Registrar cuando se crea una sesión
 hooks.addAction('session_created', (sessionId, sessionData) => {
@@ -206,7 +203,7 @@ hooks.addAction('session_destroyed', (sessionId, sessionData) => {
 #### Modificar datos de sesión antes de crearla
 
 ```javascript
-const { hooks } = require('@jerkjs/jerk');
+const { hooks } = require('jerkjs');
 
 // Añadir información de IP y fecha a los datos de sesión
 hooks.addFilter('session_create_data', (userData, req) => {
@@ -221,7 +218,7 @@ hooks.addFilter('session_create_data', (userData, req) => {
 #### Personalizar el manejo de autenticación fallida
 
 ```javascript
-const { hooks } = require('@jerkjs/jerk');
+const { hooks } = require('jerkjs');
 
 // Registrar intentos de acceso no autorizado
 hooks.addAction('session_auth_failed', (req, res, redirectTo) => {
@@ -238,7 +235,7 @@ hooks.addAction('session_auth_failed', (req, res, redirectTo) => {
 #### Extender datos de sesión durante la actualización
 
 ```javascript
-const { hooks } = require('@jerkjs/jerk');
+const { hooks } = require('jerkjs');
 
 // Añadir marca de tiempo a cada actualización de sesión
 hooks.addFilter('session_update_data', (newData, req, sessionId) => {
@@ -262,7 +259,7 @@ const {
   Logger,
   Cors,
   SessionManager
-} = require('@jerkjs/jerk');
+} = require('jerkjs');
 
 async function startServer() {
   const server = new APIServer({

@@ -30,10 +30,6 @@ const SecurityEnhancedServer = require('./lib/core/securityEnhancedServer');
 const Firewall = require('./lib/middleware/firewall');
 const { SessionManager, sessionAuth } = require('./lib/middleware/session');
 
-// Componentes MVC
-const ViewEngine = require('./lib/mvc/viewEngine');
-const ControllerBase = require('./lib/mvc/controllerBase');
-
 // Exportar todos los componentes del framework
 module.exports = {
   // Componentes fundamentales (v1.0)
@@ -68,15 +64,11 @@ module.exports = {
 
   // Componentes de sesión (v2.2.0)
   SessionManager,
-  sessionAuth,
-
-  // Componentes MVC (v2.3.0)
-  ViewEngine,
-  ControllerBase
+  sessionAuth
 };
 
 // También exportar clases individuales por conveniencia
-module.exports.APISDK = APIServer;
+module.exports.JERK = APIServer;
 
 // Crear instancia global del sistema de hooks
 module.exports.hooks = new HookSystem();

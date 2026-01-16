@@ -1,6 +1,6 @@
 # Ejemplo API con Autenticación MariaDB
 
-Este ejemplo demuestra cómo crear una API con autenticación basada en tokens almacenados en MariaDB utilizando el Framework API SDK.
+Este ejemplo demuestra cómo crear una API con autenticación basada en tokens almacenados en MariaDB utilizando el Framework JERK.
 
 ## Características
 
@@ -12,7 +12,7 @@ Este ejemplo demuestra cómo crear una API con autenticación basada en tokens a
 
 ## Configuración
 
-1. Asegúrate de tener instaladas las dependencias del framework API SDK
+1. Asegúrate de tener instaladas las dependencias del framework JERK
 2. Instala mariadb si aún no está instalado: `npm install mariadb`
 3. Asegúrate de tener MariaDB instalado y en ejecución
 4. Crea la base de datos `token_db` en MariaDB
