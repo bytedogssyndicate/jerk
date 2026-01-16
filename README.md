@@ -191,7 +191,7 @@ graph TD
     J --> L{Is OPTIONS request?}
     K --> L
     L -->|YES| M[Execute CORS middleware]
-    L -->|NO| N[Find matching route: findRoute(method, pathname)]
+    L -->|NO| N[Find matching route: findRoute&lt;method, pathname&gt;]
     M --> O{Has specific OPTIONS route?}
     O -->|YES| P[Add route params and execute handler]
     O -->|NO| Q[Send 204 No Content]
@@ -259,7 +259,7 @@ graph TD
     RRR --> SSS[Get client IP]
     SSS --> TTT{Is IP blocked?}
     TTT -->|YES| UUU
-    TTT -->|NO| VVV[Check rules: checkRules(req)]
+    TTT -->|NO| VVV[Check rules: checkRules&lt;req&gt;]
     VVV --> WWW{Rule match found?}
     WWW -->|YES| XXX{Action is block?}
     WWW -->|NO| YYY[Allow request, call next()]
