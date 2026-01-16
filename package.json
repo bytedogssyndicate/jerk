@@ -1,6 +1,6 @@
 {
   "name": "jerkjs",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "JERK Framework v2.0 - A comprehensive framework for building secure and scalable APIs with frontend support, sessions, and template engine",
   "main": "index.js",
   "scripts": {

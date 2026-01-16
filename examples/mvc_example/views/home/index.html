@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+<p>{{message}}</p>
+
+<h2>Usuarios Registrados</h2>
+{{if users}}
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{foreach:users}}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+        </tr>
+        {{endforeach}}
+    </tbody>
+</table>
+{{else}}
+<p>No hay usuarios registrados.</p>
+{{endif}}
+
+<p>Hora actual: {{currentTime}}</p>

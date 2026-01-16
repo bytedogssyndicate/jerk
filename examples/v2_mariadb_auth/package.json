@@ -1,0 +1,27 @@
+{
+  "name": "jerk-mariadb-example",
+  "version": "1.0.0",
+  "description": "Ejemplo de API con autenticación MariaDB usando el Framework JERK",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "authentication",
+    "mariadb",
+    "jwt",
+    "framework"
+  ],
+  "author": "JERK Framework",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0",
+    "mariadb": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "jerk-oauth-example",
+  "version": "1.0.0",
+  "description": "Ejemplo de API con funcionalidad OAuth 2.0 usando el Framework JERK",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "oauth",
+    "oauth2",
+    "authentication",
+    "framework"
+  ],
+  "author": "JERK Framework",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

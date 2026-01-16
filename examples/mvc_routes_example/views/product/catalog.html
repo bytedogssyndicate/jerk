@@ -1,0 +1,24 @@
+<h1>{{title}}</h1>
+
+{{if products}}
+  <div class="product-grid">
+    {{foreach:products}}
+      <div class="product-card">
+        <h3>{{item.name}}</h3>
+        <p>Categoría: {{item.category}}</p>
+        <p>Precio original: {{formatCurrency(item.price)}}</p>
+        <p>Descuento: {{item.discount}}%</p>
+        {{if item.discount > 0}}
+          <p>Precio con descuento: {{formatCurrency(calculateDiscount(item.price, item.discount))}}</p>
+          <p class="onsale">¡En oferta!</p>
+        {{else}}
+          <p class="regular">Precio regular</p>
+        {{endif}}
+      </div>
+    {{endforeach}}
+  </div>
+{{else}}
+  <p>No hay productos disponibles.</p>
+{{endif}}
+
+<a href="/">Volver al inicio</a>

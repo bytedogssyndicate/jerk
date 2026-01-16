@@ -47,7 +47,7 @@ El framework ahora puede servir diferentes tipos de contenido:
 Para usar el sistema de sesiones, primero debes configurar el middleware en tu aplicación:
 
 ```javascript
-const { APIServer, SessionManager, Cors } = require('jerkjs');
+const { APIServer, SessionManager, Cors } = require('@apisdkjs/apisdkjs');
 
 async function startServer() {
   const server = new APIServer({
@@ -187,7 +187,7 @@ El sistema de sesiones está completamente integrado con el sistema de hooks, fi
 #### Registrar actividad de sesión
 
 ```javascript
-const { hooks } = require('jerkjs');
+const { hooks } = require('@apisdkjs/apisdkjs');
 
 // Registrar cuando se crea una sesión
 hooks.addAction('session_created', (sessionId, sessionData) => {
@@ -203,7 +203,7 @@ hooks.addAction('session_destroyed', (sessionId, sessionData) => {
 #### Modificar datos de sesión antes de crearla
 
 ```javascript
-const { hooks } = require('jerkjs');
+const { hooks } = require('@apisdkjs/apisdkjs');
 
 // Añadir información de IP y fecha a los datos de sesión
 hooks.addFilter('session_create_data', (userData, req) => {
@@ -218,7 +218,7 @@ hooks.addFilter('session_create_data', (userData, req) => {
 #### Personalizar el manejo de autenticación fallida
 
 ```javascript
-const { hooks } = require('jerkjs');
+const { hooks } = require('@apisdkjs/apisdkjs');
 
 // Registrar intentos de acceso no autorizado
 hooks.addAction('session_auth_failed', (req, res, redirectTo) => {
@@ -235,7 +235,7 @@ hooks.addAction('session_auth_failed', (req, res, redirectTo) => {
 #### Extender datos de sesión durante la actualización
 
 ```javascript
-const { hooks } = require('jerkjs');
+const { hooks } = require('@apisdkjs/apisdkjs');
 
 // Añadir marca de tiempo a cada actualización de sesión
 hooks.addFilter('session_update_data', (newData, req, sessionId) => {
@@ -259,7 +259,7 @@ const {
   Logger,
   Cors,
   SessionManager
-} = require('jerkjs');
+} = require('@apisdkjs/apisdkjs');
 
 async function startServer() {
   const server = new APIServer({

@@ -1,0 +1,26 @@
+{
+  "name": "jerk-mvc-welcome-example",
+  "version": "1.0.0",
+  "description": "Ejemplo de página de bienvenida usando el motor de plantillas MVC del framework JERK",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "jerk",
+    "mvc",
+    "template-engine",
+    "welcome-page",
+    "nodejs",
+    "framework"
+  ],
+  "author": "JERK Framework Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "jerkjs": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "path": "/",
+    "method": "GET",
+    "controller": "./controllers/mainController.js",
+    "handler": "home",
+    "auth": "none"
+  },
+  {
+    "path": "/hooks-info",
+    "method": "GET",
+    "controller": "./controllers/hooksController.js",
+    "handler": "getHooksInfo",
+    "auth": "none"
+  }
+]

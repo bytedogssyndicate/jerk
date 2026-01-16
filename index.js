@@ -1,6 +1,6 @@
 /**
- * Punto de entrada del framework API SDK
- * API SDK Framework v2.0
+ * Punto de entrada del framework JERK
+ * JERK Framework v2.0
  */
 
 const APIServer = require('./lib/core/server');
@@ -29,6 +29,10 @@ const HookSystem = require('./lib/core/hooks');
 const SecurityEnhancedServer = require('./lib/core/securityEnhancedServer');
 const Firewall = require('./lib/middleware/firewall');
 const { SessionManager, sessionAuth } = require('./lib/middleware/session');
+
+// Componentes MVC
+const ViewEngine = require('./lib/mvc/viewEngine');
+const ControllerBase = require('./lib/mvc/controllerBase');
 
 // Exportar todos los componentes del framework
 module.exports = {
@@ -64,7 +68,11 @@ module.exports = {
 
   // Componentes de sesión (v2.2.0)
   SessionManager,
-  sessionAuth
+  sessionAuth,
+
+  // Componentes MVC (v2.3.0)
+  ViewEngine,
+  ControllerBase
 };
 
 // También exportar clases individuales por conveniencia

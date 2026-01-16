@@ -1,0 +1,27 @@
+{
+  "name": "jerk-example-v2",
+  "version": "1.0.0",
+  "description": "Ejemplo de API con autenticación SQLite usando el Framework JERK",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "authentication",
+    "sqlite",
+    "jwt",
+    "framework"
+  ],
+  "author": "JERK Framework",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

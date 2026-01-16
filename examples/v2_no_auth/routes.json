@@ -1,0 +1,37 @@
+[
+  {
+    "path": "/",
+    "method": "GET",
+    "controller": "./controllers/mainController.js",
+    "handler": "home",
+    "auth": "none"
+  },
+  {
+    "path": "/public",
+    "method": "GET",
+    "controller": "./controllers/publicController.js",
+    "handler": "getPublicData",
+    "auth": "none"
+  },
+  {
+    "path": "/products",
+    "method": "GET",
+    "controller": "./controllers/productController.js",
+    "handler": "getAllProducts",
+    "auth": "none"
+  },
+  {
+    "path": "/products/:id",
+    "method": "GET",
+    "controller": "./controllers/productController.js",
+    "handler": "getProductById",
+    "auth": "none"
+  },
+  {
+    "path": "/health",
+    "method": "GET",
+    "controller": "./controllers/healthController.js",
+    "handler": "getStatus",
+    "auth": "none"
+  }
+]
